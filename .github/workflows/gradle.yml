@@ -57,12 +57,12 @@ jobs:
         path: ~/.sonar/cache
         key: ${{ runner.os }}-sonar
         restore-keys: ${{ runner.os }}-sonar
-    - name: Build and analyze
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+    #- name: Build and analyze
+     # env:
+     #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+     #   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       #run: ./gradlew build jacocoTestReport sonarqube --info
-      run: ./gradlew sonarqube --info
+     # run: ./gradlew sonarqube --info
     
     #- name: SonarCloud Scan
      # uses: sonarsource/sonarcloud-github-action@master
