@@ -52,7 +52,7 @@ jobs:
         # Destination path
         path: ./dist/sudha
     - run: |
-          ls -ltr
+          ls -ltr /dist/sudha
     - name: Cache SonarCloud packages
       uses: actions/cache@v1
       with:
