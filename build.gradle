@@ -9,6 +9,7 @@
 
 /*
 // Apply the java plugin to add support for Java
+
 apply plugin: 'java'
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -27,7 +28,9 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 */
-
+plugins {
+  id "org.sonarqube" version "3.0"
+}
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'application'
@@ -62,3 +65,10 @@ task wrapper(type: Wrapper) {
     gradleVersion = '3.5'
 }
 // end::wrapper[]
+sonarqube {
+  properties {
+    property "sonar.projectKey", "gregaubert_sonarcloud_example_java-gradle-github-action"
+    property "sonar.organization", "gregaubert"
+    property "sonar.host.url", "https://squad-3-core.sc-dev.io"
+  }
+}
