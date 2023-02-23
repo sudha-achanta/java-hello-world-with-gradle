@@ -32,14 +32,22 @@ jobs:
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
       with:
         arguments: build
-    - name: SonarCloud Scan
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.2
+      with:
+        # Artifact name
+        name: jb-hello-world-gradle-0.1.0.jar # optional, default is artifact
+        # A file, directory or wildcard pattern that describes what to upload
+        path: ./build/libs
+        # The desired behavior if no files are found using the provided path.
+    #- name: SonarCloud Scan
       # You may pin to the exact commit or the version.
       # uses: SonarSource/sonarcloud-github-action@cb201f3b2d7a38231a8c042dfea4539c8bea180b
-      uses: SonarSource/sonarcloud-github-action@v1.8
-      with:
+      #uses: SonarSource/sonarcloud-github-action@v1.8
+      #with:
         # Additional arguments to the sonarcloud scanner
         #args: # optional
         # Set the sonar.projectBaseDir analysis property
-        projectBaseDir: . # optional, default is .
+        #projectBaseDir: . # optional, default is .
   
     
