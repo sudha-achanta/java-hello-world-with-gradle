@@ -55,6 +55,13 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       #run: ./gradlew build jacocoTestReport sonarqube --info
       run: ./gradlew sonarqube --info
+    - name: Download a Build Artifact
+      uses: actions/download-artifact@v3.0.2
+      with:
+        # Artifact name
+        name: jb-hello-world-gradle-0.1.0.jar
+        # Destination path
+        path: ./dist/sudha
     #- name: SonarCloud Scan
      # uses: sonarsource/sonarcloud-github-action@master
      # env:
