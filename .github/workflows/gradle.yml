@@ -109,7 +109,7 @@ jobs:
         aws_bucket: java-hello-world-2262023
         # directory to upload
         source_dir: ./dist/terraformdeploy/jb-hello-world-gradle-0.1.0.jar
-        #destination_dir: s://java-hello-world-2262023/java-hello/jb-hello-world-gradle-0.1.0.jar
+        destination_dir: s3://java-hello-world-2262023/java-hello/jb-hello-world-gradle-0.1.0.jar
 
     
   
