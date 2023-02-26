@@ -96,7 +96,7 @@ jobs:
           # AWS Region (default: us-east-1)
           aws-region: us-west-2 # default is us-east-1
           # ACL to apply to the bucket during creation (default: private)
-          acl: public # default is private
+          acl: private # default is private
     - name: artifact uplod to s3
       uses: keithweaver/aws-s3-github-action@v1.0.0
       with:
