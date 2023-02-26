@@ -79,7 +79,7 @@ jobs:
       uses: actions/download-artifact@v3.0.2
       with:
         # Artifact name
-        name: jb-hello-world-gradle-0.1.0.jar
+        #name: jb-hello-world-gradle-0.1.0.jar
         # Destination path
         path: ./dist/terraformdeploy
     - run: |
@@ -108,8 +108,8 @@ jobs:
         # aws bucket name
         aws_bucket: java-hello-world-2262023
         # directory to upload
-        source_dir: ./dist/terraformdeploy/jb-hello-world-0.1.0.jar
-        destination_dir: java-hello/jb-hello-world-0.1.0.jar
+        source_dir: ./dist/terraformdeploy/jb-hello-world-gradle-0.1.0.jar
+        destination_dir: java-hello/jb-hello-world-gradle-0.1.0.jar
 
     
   
