@@ -72,6 +72,7 @@ jobs:
      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
     - name: Download a Build Artifact
