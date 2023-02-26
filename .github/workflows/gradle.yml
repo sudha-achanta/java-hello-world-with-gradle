@@ -97,23 +97,15 @@ jobs:
           aws-region: us-west-2 # default is us-east-1
           # ACL to apply to the bucket during creation (default: private)
           acl: public # default is private
-    - name: S3 Bucket Upload Action
-      # You may pin to the exact commit or the version.
-      # uses: bshelling/s3upload-action@601682049cdb3d05c2a1dfaf372c594d4ae641cc
-      uses: bshelling/s3upload-action@1.0
+    - name: artifact uplod to s3
+      uses: keithweaver/aws-s3-github-action@v1.0.0
       with:
-        # keyid
-        keyid: 
-        # accesskey
-        accesskey: 
-        # region
-        region: 
-        # file path
-        filepath: 
-        # bucket
-        bucket: 
-        # exclusion
-        exclusion: 
+        command: cp
+        source: ./dist/terraformdeploy/jb-hello-world-gradle-0.1.0.jar
+        destination: s3://java-hello-world/hello/jb-hello-world-gradle-0.1.0.jar
+        aws_access_key_id: ${{ secrets.ACCESS_KEY }}
+        aws_secret_access_key: ${{ secrets.SECRET_KEY }}
+        aws_region: us-west-2
 
 
     
