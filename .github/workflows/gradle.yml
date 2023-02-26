@@ -88,7 +88,7 @@ jobs:
       uses: aitorres/aws-s3-create-bucket@v1.2.0
       with:
           # Name of the bucket that will be created (make sure it is unique)
-          bucket-name: java-hello-world-226
+          bucket-name: java-hello-world-2262023
           # AWS Access Key ID
           aws-access-key-id: ${{ secrets.ACCESS_KEY }}
           # AWS Secret Access Key
@@ -98,15 +98,13 @@ jobs:
           # ACL to apply to the bucket during creation (default: private)
           acl: private # default is private
     - name: artifact uplod to s3
-      uses: keithweaver/aws-s3-github-action@v1.0.0
+      uses: hkusu/s3-upload-action@v2
       with:
-        command: cp
-        source: ./dist/terraformdeploy/jb-hello-world-gradle-0.1.0.jar
-        destination: s3://java-hello-world/hello/jb-hello-world-gradle-0.1.0.jar
-        aws_access_key_id: ${{ secrets.ACCESS_KEY }}
-        aws_secret_access_key: ${{ secrets.SECRET_KEY }}
-        aws_region: us-west-2
-
+        aws-access-key-id: ${{ secrets.ACCESS_KEY }}
+        aws-secret-access-key: ${{ secrets.SECRET_KEY }}
+        aws-region: 'us-west-2'
+        aws-bucket: java-hello-world-2262023
+        file-path: './dist/terraformdeploy/jb-hello-world-gradle-0.1.0.jar'
 
     
   
