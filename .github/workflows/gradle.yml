@@ -88,7 +88,7 @@ jobs:
       uses: aitorres/aws-s3-create-bucket@v1.2.0
       with:
           # Name of the bucket that will be created (make sure it is unique)
-          bucket-name: java-hello-world
+          bucket-name: java-hello-world-226
           # AWS Access Key ID
           aws-access-key-id: ${{ secrets.ACCESS_KEY }}
           # AWS Secret Access Key
