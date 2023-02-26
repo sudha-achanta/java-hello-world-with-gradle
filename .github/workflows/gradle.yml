@@ -84,7 +84,37 @@ jobs:
         path: ./dist/terraformdeploy
     - run: |
           ls -ltr ./dist/terraformdeploy
-      
-        
+    - name: AWS S3 Create Bucket
+      uses: aitorres/aws-s3-create-bucket@v1.2.0
+      with:
+          # Name of the bucket that will be created (make sure it is unique)
+          bucket-name: java-hello-world
+          # AWS Access Key ID
+          aws-access-key-id: ${{ secrets.ACCESS_KEY }}
+          # AWS Secret Access Key
+          aws-secret-access-key: ${{ secrets.SECRET_KEY }}
+          # AWS Region (default: us-east-1)
+          aws-region: us-west-2 # default is us-east-1
+          # ACL to apply to the bucket during creation (default: private)
+          acl: public # default is private
+    - name: S3 Bucket Upload Action
+      # You may pin to the exact commit or the version.
+      # uses: bshelling/s3upload-action@601682049cdb3d05c2a1dfaf372c594d4ae641cc
+      uses: bshelling/s3upload-action@1.0
+      with:
+        # keyid
+        keyid: 
+        # accesskey
+        accesskey: 
+        # region
+        region: 
+        # file path
+        filepath: 
+        # bucket
+        bucket: 
+        # exclusion
+        exclusion: 
+
+
     
   
