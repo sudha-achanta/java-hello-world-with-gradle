@@ -100,7 +100,8 @@ jobs:
           acl: private # default is private
     -  run: |
         bucketName="java-hello-world-2272023-2"
-        echo "::set-output name=bucketName::$bucketName"
+        echo "::name::$bucketName"
+        #echo "::set-output name=bucketName::$bucketName"
         #echo "bucketName=$bucketName" >> $GITHUB_OUTPUT
     - name: printoutput
       if: always()
