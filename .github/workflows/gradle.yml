@@ -98,10 +98,9 @@ jobs:
           aws-region: us-west-2 # default is us-east-1
           # ACL to apply to the bucket during creation (default: private)
           acl: private # default is private
-    - run: |
+      run: |
         bucketName="java-hello-world-2272023-1"
-        #echo "bucketName=$bucketName"
-        echo "::set-output bucketName=$bucketName"
+        echo "::set-output name=bucketName=$bucketName"
     - name: Upload S3
       if: always()
       uses: shallwefootball/upload-s3-action@v1.3.0
