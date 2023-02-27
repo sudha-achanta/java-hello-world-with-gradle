@@ -103,9 +103,8 @@ jobs:
         #echo "::set-output name=bucketName::$bucketName"
         echo "bucketName=$bucketName" >> $GITHUB_OUTPUT
     - name: printoutput
-    - run: |
-        bucketname=${{ steps.var.outputs.bucketName }}
-        echo "$bucketname"
+      run: echo "${{ steps.var.outputs.bucketName }}"
+        
     - name: Upload S3
       if: always()
       uses: shallwefootball/upload-s3-action@v1.3.0
