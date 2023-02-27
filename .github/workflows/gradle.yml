@@ -99,7 +99,8 @@ jobs:
           aws-region: us-west-2 # default is us-east-
           # ACL to apply to the bucket during creation (default: private)
           acl: private # default is private
-          run: echo "::set-output name=bucketname::java-hello-world-2272023-4"
+          #run: echo "::set-output name=bucketname::java-hello-world-2272023-4"
+          run: echo "bucketname=java-hello-world-2272023-4" >> $GITHUB_ENV
     #-  run: |
         #bucketName="java-hello-world-2272023-2"
         #echo "::bucketName::java-hello-world-2272023-2"
@@ -108,9 +109,7 @@ jobs:
     - name: printoutput
       if: always()
       run: |
-          echo '{
-            "bucketname": "${{ steps.var.outputs.bucketname }}"
-          }'
+          echo bucket name is: ${{ env.bucketName }}
         
     - name: Upload S3
       if: always()
