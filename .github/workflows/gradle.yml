@@ -99,8 +99,8 @@ jobs:
           # ACL to apply to the bucket during creation (default: private)
           acl: private # default is private
     -  run: |
-        bucketName="java-hello-world-2272023-2"
-        echo "::name::$bucketName"
+        #bucketName="java-hello-world-2272023-2"
+        echo "::bucketName::java-hello-world-2272023-2"
         #echo "::set-output name=bucketName::$bucketName"
         #echo "bucketName=$bucketName" >> $GITHUB_OUTPUT
     - name: printoutput
