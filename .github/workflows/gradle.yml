@@ -102,6 +102,10 @@ jobs:
         bucketName="java-hello-world-2272023-2"
         #echo "::set-output name=bucketName::$bucketName"
         echo "bucketName=$bucketName" >> $GITHUB_OUTPUT
+    - name: printoutput
+    - run: |
+        bucketname=${{ steps.var.outputs.bucketName }}
+        echo "$bucketname"
     - name: Upload S3
       if: always()
       uses: shallwefootball/upload-s3-action@v1.3.0
