@@ -89,18 +89,18 @@ jobs:
       id: output
       with:
           # Name of the bucket that will be created (make sure it is unique)
-          bucket-name: java-hello-world-2272023-1
+          bucket-name: java-hello-world-2272023-2
           # AWS Access Key ID
           aws-access-key-id: ${{ secrets.ACCESS_KEY }}
           # AWS Secret Access Key
           aws-secret-access-key: ${{ secrets.SECRET_KEY }}
           # AWS Region (default: us-east-1)
-          aws-region: us-west-2 # default is us-east-1
+          aws-region: us-west-2 # default is us-east-
           # ACL to apply to the bucket during creation (default: private)
           acl: private # default is private
-      run: |
-        bucketName="java-hello-world-2272023-1"
-        echo "::set-output name=bucketName=$bucketName"
+    -  run: |
+        bucketName="java-hello-world-2272023-2"
+        echo "::set-output name=bucketName::$bucketName"
     - name: Upload S3
       if: always()
       uses: shallwefootball/upload-s3-action@v1.3.0
