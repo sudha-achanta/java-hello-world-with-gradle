@@ -107,7 +107,7 @@ jobs:
       with:
           # Name of the bucket that will be created (make sure it is unique)
           #bucket-name: ${{ env.bucket-name }}
-          bucket-name: ${{ steps.step_one.outputs.bucket-name }}        
+          bucket-name: ${{ steps.testoutput.outputs.bucket-name }}        
           # AWS Access Key ID
           aws-access-key-id: ${{ secrets.ACCESS_KEY }}
           # AWS Secret Access Key
@@ -120,7 +120,7 @@ jobs:
     - name: printoutput
       if: always()
       run: |
-          echo bucket name is: ${{ steps.step_one.outputs.bucket-name }}  
+          echo bucket name is: ${{ steps.testoutput.outputs.bucket-name }}  
         
     - name: Upload S3
       if: always()
@@ -132,7 +132,7 @@ jobs:
         aws_secret_access_key: ${{ secrets.SECRET_KEY }}
         # aws bucket name
         #aws_bucket: ${{ env.bucket-name }}
-        aws_bucket: ${{ steps.step_one.outputs.bucket-name }} 
+        aws_bucket: ${{ steps.testoutput.outputs.bucket-name }} 
         # directory to upload
         source_dir: ./dist/terraformdeploy/${{needs.job1.outputs.jarname}}
         destination_dir: java-hello/${{needs.job1.outputs.jarname}}
