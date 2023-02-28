@@ -21,8 +21,18 @@ permissions:
   contents: read
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set the value
+      id: step_one
+      run: |
+        echo "action_state=yellow" >> $GITHUB_ENV
+    - name: Use the value
+      id: step_two
+      run: |
+        echo "${{ env.action_state }}" # This will output 'yellow'
   build:
-
     runs-on: ubuntu-latest
     outputs:
       jarname: ${{ steps.jar-name.outputs.testvar }}
