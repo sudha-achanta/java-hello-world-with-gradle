@@ -97,6 +97,8 @@ jobs:
         path: ./dist/terraformdeploy
     - run: |
           ls -ltr ./dist/terraformdeploy
+    - name: Deploy
+      run: curl -v -u admin:admin -T ./dist/terraformdeploy/jb-hello-world-gradle-0.1.0.jar 'http://52.41.100.93:8080/manager/text/deploy?path=/java-helloworld
     - name: setBucketName
       id: testoutput
       run: |
